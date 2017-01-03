@@ -12,6 +12,8 @@ angular.module('starter.controllers', [])
       .then(
         function(response){
           console.log(response);
+          $scope.gifs = response.data.data;
+          console.log($scope.gifs);
         }, 
         function(error){
           console.log(error);
@@ -20,6 +22,9 @@ angular.module('starter.controllers', [])
   }
   getGifs();
 
+  $scope.favouriteGif = function (slug){
+    console.log(slug);    
+  }
 })
 
 .controller('ChatsCtrl', function($scope, Chats) {
