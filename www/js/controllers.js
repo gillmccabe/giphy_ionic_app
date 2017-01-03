@@ -3,10 +3,13 @@ angular.module('starter.controllers', [])
 .controller('DashCtrl', function($scope, $http, $q) {
 
   var apiKey = "&api_key=dc6zaTOxFJmzC";
-  var url = "http://api.giphy.com/v1/gifs/search?q=funny+cat" + apiKey; 
+  var searchUrl = "http://api.giphy.com/v1/gifs/search?q="; 
 
-  function getGifs (){
+  $scope.searchTerm = null;
+
+  $scope.searchGifs = function(){
     var deferred = $q.defer();
+    var url = searchUrl + $scope.searchTerm + apiKey
 
     $http.get(url)
       .then(
@@ -14,13 +17,13 @@ angular.module('starter.controllers', [])
           console.log(response);
           $scope.gifs = response.data.data;
           console.log($scope.gifs);
+          deferred.resolve(response.data);
         }, 
         function(error){
           console.log(error);
         });
     return deferred.promise; 
   }
-  getGifs();
 
   $scope.favouriteGif = function (slug){
     console.log(slug);    

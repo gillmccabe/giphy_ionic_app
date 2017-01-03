@@ -2,8 +2,11 @@
   <ion-content>
     <ion-list>
       <ion-item class="item-input">
-        <input type="text" placeholder="Search..."/>
+        <input type="text" placeholder="Search..." ng-model="searchTerm"/>
       </ion-item>
+      <button class="button button-full button-positive" ng-click="searchGifs">
+        find gifs
+      </button>
       <ion-item class="item-divider"></ion-item>
       <div class="card" ng-repeat="g in gifs">
 
