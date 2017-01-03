@@ -8,7 +8,7 @@
       <div class="card" ng-repeat="g in gifs">
 
         <ion-item class="item-image">
-          <img src="{{g.embed_url}}"/>
+          <img src="{{g.images.fixed_height.url}}"/>
         </ion-item>
         <ion-item class="item-icon-right">
           <i class="icon ion-ios-star-outline" ng-click="favouriteGif(g.slug)"></i>
