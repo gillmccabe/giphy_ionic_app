@@ -5,18 +5,20 @@ angular.module('starter.controllers', [])
   var apiKey = "&api_key=dc6zaTOxFJmzC";
   var searchUrl = "http://api.giphy.com/v1/gifs/search?q="; 
 
-  $scope.searchTerm = null;
+  $scope.search = {
+    term: '', 
+    results: null
+  };
 
   $scope.searchGifs = function(){
     var deferred = $q.defer();
-    var url = searchUrl + $scope.searchTerm + apiKey
+    var url = searchUrl + $scope.search.term + apiKey;
 
     $http.get(url)
       .then(
         function(response){
           console.log(response);
-          $scope.gifs = response.data.data;
-          console.log($scope.gifs);
+          $scope.search.results = response.data.data;
           deferred.resolve(response.data);
         }, 
         function(error){
