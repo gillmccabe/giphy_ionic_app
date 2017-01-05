@@ -5,6 +5,9 @@
         <ion-item class="item-image">
           <img ng-src="{{g.images.fixed_height.url}}"/>
         </ion-item>
+        <ion-item class="item-icon-right">
+          <i class="icon ion-ios-star-outline" ng-click="favouriteGif(g.slug)"></i>
+        </ion-item>
       </div>
     </ion-list>
   </ion-content>
