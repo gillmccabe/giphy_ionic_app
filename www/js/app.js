@@ -24,7 +24,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   });
 })
 
-.value("_apiKey", "&api_key=dc6zaTOxFJmzC")
+.value('_apiKey', 'api_key=dc6zaTOxFJmzC')
 
 .config(function($stateProvider, $urlRouterProvider) {
 
