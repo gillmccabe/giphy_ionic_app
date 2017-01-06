@@ -1,12 +1,13 @@
 <ion-view view-title="Discover">
   <ion-content>
+  <ion-refresher pulling-text="Pull to refresh..." on-refresh="vm.getTrending(true)"></ion-refresher>
     <ion-list>
-      <div class="card" ng-repeat="g in gifs" ng-if="gifs != null">
+      <div class="card" ng-repeat="g in vm.trendingGifs" ng-if="vm.trendingGifs != null">
         <ion-item class="item-image">
           <img ng-src="{{g.images.fixed_height.url}}"/>
         </ion-item>
         <ion-item class="item-icon-right">
-          <i class="icon ion-ios-star-outline" ng-click="favouriteGif(g.slug)"></i>
+          <i class="icon ion-ios-star-outline" ng-click="vm.favouriteGif(g.slug)"></i>
         </ion-item>
       </div>
     </ion-list>

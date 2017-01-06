@@ -2,18 +2,18 @@
   <ion-content>
     <ion-list>
       <ion-item class="item-input">
-        <input type="text" placeholder="Search..." ng-model="search.term"/>
+        <input type="text" placeholder="Search..." ng-model="vm.search.term"/>
       </ion-item>
-      <button class="button button-full button-positive" ng-click="searchGifs()">
+      <button class="button button-full button-positive" ng-click="vm.searchGifs()">
         find gifs
       </button>
           
-      <div class="card" ng-repeat="g in search.results" ng-if="search.results != null">
+      <div class="card" ng-repeat="g in vm.search.results" ng-if="vm.search.results != null">
         <ion-item class="item-image">
           <img ng-src="{{g.images.fixed_height.url}}"/>
         </ion-item>
         <ion-item class="item-icon-right">
-          <i class="icon ion-ios-star-outline" ng-click="favouriteGif(g.slug)"></i>
+          <i class="icon ion-ios-star-outline" ng-click="vm.addFavourite(g.slug)"></i>
         </ion-item>
       </div>
     </ion-list>
